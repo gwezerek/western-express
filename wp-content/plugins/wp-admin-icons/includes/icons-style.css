@@ -1,0 +1,67 @@
+/* CSS Document */
+
+.widefat { width: 700px; }
+
+.iconList li, .myIconList li { float: left; height:16px; cursor:pointer; padding:2px; overflow:hidden; margin: 0 2px 6px; }
+
+.iconList li:hover img,  .myIconList li:hover img { position: relative; top: -24px; }
+
+.setIconTable { margin: 10px 0; }
+
+.wpAdminIconsTable, .myWpAdminIconsTable { margin: 0 0 10px; display: none; } 
+
+.setIconTable .iconChangerBox { padding: 10px 0 0 15px; overflow: hidden; }
+
+.iconChangerBox ul { margin: 0; overflow: hidden; }
+
+.iconChangerBox ul li { float: left; height:16px;  cursor:pointer; padding:0; overflow:hidden; margin: 0; }
+
+.iconInPlaceTable td p { margin: 7px 0 .8em; }
+
+.setIconTable .submit { padding: 0; }
+
+.currentIcon { height: 16px; overflow: hidden; padding: 7px 5px 5px 30px; }
+
+.clearIconWrap { position: relative; }
+
+.clearIcon { width:80px; }
+
+#newIconHiddenField { display: none; }
+
+.hiddenField { display: none; }
+
+.uploader td { border: none; padding: 0; }
+
+.uploadIconTable { margin: 0; display: none; }
+
+.iconsTable { margin: 0 0 10px; }
+
+.iconList, .myIconList { margin: 0; overflow: hidden; }
+
+#uploadShow { font-weight: bold; }
+
+.widefat .uploader input { margin: 4px 0 0; font-family: Arial;}
+
+.moreOptions { background:none repeat scroll 0 0 #F0F0F0; border:1px solid #CCCCCC; left: 720px; padding:0 10px 10px; position:absolute; width:200px; top: 74px;}
+
+.credits { background:none repeat scroll 0 0 #F0F0F0; border:1px solid #CCCCCC; left: 720px; top: 335px; padding:0 10px 10px; position:absolute; width:200px; }
+
+.whoBy { font-size: 14px; }
+
+.adminFacebook { float: left; }
+
+.loadIcons, .loadMyIcons { font-size: 16px; margin: 20px 0 20px 5px; float: left;}
+
+.myIconsTable { margin: 20px 0 10px; }
+
+.tableWrap { width: 500px; overflow: hidden; }
+
+.tableWrap .widefat { float: left; width: 200px; }
+
+.explain { width: 300px; }
+
+.explanation { font-weight: normal; font-size: 12px; }
+
+.moreIcons { line-height: 22px; font-size: 16px; padding:10px; display: block; text-align: right; }
+
+.end-message { text-align: left; }

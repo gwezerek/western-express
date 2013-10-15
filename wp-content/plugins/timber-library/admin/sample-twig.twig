@@ -1,0 +1,8 @@
+<article class="tease-post tz-post-m feed-mod" id="tz-{{post.ID}}">
+	<h2 class="tz-post-head">
+		<a href="{{post.link}}">{{post.title|default('Post tease here and here')}}</a>
+	</h2>
+	<a href="{{post.link}}">
+		<img src="{{post.thumbnail.src|default('/wp-content/mytheme/default-missing-image.jpg')|resize(275, 180)}}" />
+	</a>
+</article>
