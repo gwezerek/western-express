@@ -3,25 +3,33 @@
 
 	<img class="diary-lead-img" src="{{post.thumbnail.src}}" />
 	{% for item in post.get_field('featured_images') %}
-		<img class="diary-lead-img" src="{{TimberImage(item.image).src}}" />
-		<p>{{item.caption}}</p>
+		<div class="diary-lead-nth-img max-width">
+			<img class="diary-lead-img" src="{{TimberImage(item.image).src}}" />
+			<p>{{item.caption}}</p>
+		</div>
 	{% endfor %}
 
-	<div "diary-map-mod">
-		<img class="diary-map-img" src="{{TimberImage(post.distance_img).src}}" />
-		<img class="diary-map-img" src="{{TimberImage(post.elevation_img).src}}" />
-		<div "diary-travel-toggle">
-			
+	<div class="diary-map-mod max-width">
+		<div class="diary-maps">
+			<img class="diary-map-img media-block" src="{{TimberImage(post.distance_img).src}}" />
+			<img class="diary-map-img media-block" src="{{TimberImage(post.elevation_img).src}}" />
+		</div>
+		<div class="diary-map-controls">
+			<button class="diary-map-toggle media-block">Distance</button>
+			<button class="diary-map-toggle media-block">Elevation</button>
 		</div>
 	</div>
 
-	<header class="diary-post-header">
+	<header class="diary-post-header max-width">
 		<h1 class="diary-post-title">{{post.title}}</h1>
-		<h2 class="diary-dateline">{{post.post_date_range}} &bull; {{TimberTerm(post.from_location)}} -> {{TimberTerm(post.to_location)}}
+		<h2 class="diary-dateline">{{post.post_date_range}} &bull; {{TimberTerm(post.from_location)}} 
+			{% if post.to_location %} 
+				-> {{TimberTerm(post.to_location)}}
+			{% endif %}
 		</h2>
 	</header>
 
-	<section class="diary-copy">{{post.content}}</section>
+	<section class="diary-copy max-width">{{post.content}}</section>
 
 </article>
 
@@ -30,6 +38,7 @@
 	<article class="diary-aside">
 
 		<img class="diary-aside--lead-img" src="{{TimberImage(post.get_field('lead_img')).src}}" />
+
 		<header class="diary-aside-header">
 			<h1 class="diary-aside-title">{{TimberPost(post.aside).title}}</h1>
 		</header>

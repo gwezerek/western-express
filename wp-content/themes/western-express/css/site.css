@@ -379,47 +379,160 @@ body {
 
 /* line 11, ../sass/partials/_diary.scss */
 .diary-lead-img {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 /* line 15, ../sass/partials/_diary.scss */
-.diary-map-img {
-  width: 49%;
-  margin-right: 0.5%;
+.diary-lead-nth-img {
+  display: none;
+}
+
+/* line 19, ../sass/partials/_diary.scss */
+.diary-map-mod {
   margin-bottom: 20px;
 }
 
-/* line 21, ../sass/partials/_diary.scss */
+/* line 23, ../sass/partials/_diary.scss */
+.diary-maps {
+  position: relative;
+  height: 100px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+@media (min-width: 400px) {
+  /* line 23, ../sass/partials/_diary.scss */
+  .diary-maps {
+    height: auto;
+    margin-bottom: 0px;
+    *zoom: 1;
+  }
+  /* line 38, ../../../../../../../../Applications/LiveReload.app/Contents/Resources/SASS.lrplugin/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+  .diary-maps:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  /* line 21, ../sass/components/_layout.scss */
+  .diary-maps > .media-block {
+    float: left;
+    clear: none;
+    margin-left: 0.625em;
+    margin-bottom: 0.625em;
+    width: calc((100% - (0.625em * (2 - 1)))/2);
+  }
+  /* line 27, ../sass/components/_layout.scss */
+  .diary-maps > .media-block:nth-of-type(n) {
+    clear: none;
+    margin-left: 0.625em;
+  }
+  /* line 31, ../sass/components/_layout.scss */
+  .diary-maps > .media-block:nth-of-type(2n+1) {
+    clear: left;
+    margin-left: 0;
+  }
+}
+
+/* line 35, ../sass/partials/_diary.scss */
+.diary-map-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-bottom: 10px;
+}
+@media (min-width: 400px) {
+  /* line 35, ../sass/partials/_diary.scss */
+  .diary-map-img {
+    position: static;
+  }
+}
+
+/* line 43, ../sass/partials/_diary.scss */
+.diary-map-controls {
+  *zoom: 1;
+}
+/* line 38, ../../../../../../../../Applications/LiveReload.app/Contents/Resources/SASS.lrplugin/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.diary-map-controls:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 21, ../sass/components/_layout.scss */
+.diary-map-controls > .media-block {
+  float: left;
+  clear: none;
+  margin-left: 0.625em;
+  margin-bottom: 0.625em;
+  width: calc((100% - (0.625em * (2 - 1)))/2);
+}
+/* line 27, ../sass/components/_layout.scss */
+.diary-map-controls > .media-block:nth-of-type(n) {
+  clear: none;
+  margin-left: 0.625em;
+}
+/* line 31, ../sass/components/_layout.scss */
+.diary-map-controls > .media-block:nth-of-type(2n+1) {
+  clear: left;
+  margin-left: 0;
+}
+
+/* line 47, ../sass/partials/_diary.scss */
+.diary-map-toggle {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 49%;
+  background-color: gray;
+}
+
+/* line 55, ../sass/partials/_diary.scss */
 .diary-post-header {
   margin-bottom: 20px;
 }
 
-/* line 25, ../sass/partials/_diary.scss */
+/* line 59, ../sass/partials/_diary.scss */
 .diary-post-title {
+  margin-bottom: 20px;
   text-align: center;
   font-size: 2.25em;
-  margin-bottom: 20px;
 }
 
-/* line 31, ../sass/partials/_diary.scss */
+/* line 65, ../sass/partials/_diary.scss */
 .diary-dateline {
   text-align: center;
   font-weight: normal;
   font-size: 1em;
 }
 
-/* line 38, ../sass/partials/_diary.scss */
+/* line 72, ../sass/partials/_diary.scss */
 .diary-copy p {
   margin-bottom: 20px;
 }
 
 /* line 28, ../sass/site.scss */
 body {
-  margin: 50px 5% 40px;
   background: white;
 }
 
-/* line 33, ../sass/site.scss */
+/* line 32, ../sass/site.scss */
+.max-width {
+  margin-left: 5%;
+  margin-right: 5%;
+  max-width: 900px;
+}
+@media (min-width: 960px) {
+  /* line 32, ../sass/site.scss */
+  .max-width {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* line 44, ../sass/site.scss */
 img {
   width: 100%;
   max-width: 100%;

@@ -26,9 +26,20 @@
 // =============================================
 
 body {
-  margin: 50px 5% 40px;
   background: $bground;
 }
+
+.max-width {
+  margin-left: 5%;
+  margin-right: 5%;
+  max-width: 900px;
+  @media (min-width: $large) {
+  	margin-left: auto;
+  	margin-right: auto;
+  }
+}
+
+
 
 img {
 	@include resp-img;

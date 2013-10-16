@@ -9,13 +9,47 @@
 }
 
 .diary-lead-img {
-	margin-bottom: 5px;
+	margin-bottom: 10px;
+}
+
+.diary-lead-nth-img {
+	display: none;
+}
+
+.diary-map-mod {
+	margin-bottom: 20px;
+}
+
+.diary-maps {
+	position: relative;
+	height: 100px;
+	overflow: hidden;
+	margin-bottom: 10px;
+	@media (min-width: $small) {
+		height: auto;
+		margin-bottom: 0px;
+		@include media-grid(2, em(10), '.media-block');
+	}
 }
 
 .diary-map-img {
-	width: 49%;
-	margin-right: 0.5%;
+	@include absolute(0 0 n n);
+	margin-bottom: 10px;
+	@media (min-width: $small) {
+		position: static;
+	}
+}
+
+.diary-map-controls {
+	@include media-grid(2, em(10), '.media-block');
+}
+
+.diary-map-toggle {
+	@include inline-block;
 	margin-bottom: 20px;
+	padding: 10px;
+	width: 49%;
+	background-color: gray;
 }
 
 .diary-post-header {
@@ -23,9 +57,9 @@
 }
 
 .diary-post-title {
+	margin-bottom: 20px;
 	text-align: center;
 	font-size: em(36);
-	margin-bottom: 20px;
 }
 
 .diary-dateline {
@@ -39,3 +73,4 @@
 		margin-bottom: 20px;
 	}
 }
+
