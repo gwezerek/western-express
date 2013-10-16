@@ -11,3 +11,9 @@ sitemap.xml
 wp-content/cache/
 wp-content/backups/
 sitemap.xml.gz
+
+*.sass-cache
+*.sublime-workspace
+bower_components/
+node_modules/
+wp-content/themes/western-express/css/*.scss

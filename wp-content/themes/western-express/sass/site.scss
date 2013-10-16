@@ -1,0 +1,29 @@
+// ============================================= 
+
+//  Base SCSS                
+
+// ============================================= 
+
+
+//  Import components              
+// ============================================= 
+@import "components/base";
+
+
+//  Import partials              
+// =============================================
+@import "partials/reset";
+@import "partials/type";
+@import "partials/layout";
+@import "partials/header";
+@import "partials/footer";
+
+
+
+//  Base styles            
+// =============================================
+
+body {
+  margin: 30px 5.5% 40px;
+  background: $bground;
+}
