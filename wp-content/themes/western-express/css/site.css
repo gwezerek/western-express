@@ -360,8 +360,67 @@ body {
   color: black;
 }
 
-/* line 26, ../sass/site.scss */
+/* line 7, ../sass/partials/_header.scss */
+.header {
+  margin-bottom: 40px;
+}
+
+/* line 11, ../sass/partials/_header.scss */
+.hdr-logo {
+  margin-bottom: 20px;
+  font-size: 3.125em;
+  line-height: 130%;
+}
+
+/* line 7, ../sass/partials/_diary.scss */
+.diary-article {
+  margin-bottom: 40px;
+}
+
+/* line 11, ../sass/partials/_diary.scss */
+.diary-lead-img {
+  margin-bottom: 5px;
+}
+
+/* line 15, ../sass/partials/_diary.scss */
+.diary-map-img {
+  width: 49%;
+  margin-right: 0.5%;
+  margin-bottom: 20px;
+}
+
+/* line 21, ../sass/partials/_diary.scss */
+.diary-post-header {
+  margin-bottom: 20px;
+}
+
+/* line 25, ../sass/partials/_diary.scss */
+.diary-post-title {
+  text-align: center;
+  font-size: 2.25em;
+  margin-bottom: 20px;
+}
+
+/* line 31, ../sass/partials/_diary.scss */
+.diary-dateline {
+  text-align: center;
+  font-weight: normal;
+  font-size: 1em;
+}
+
+/* line 38, ../sass/partials/_diary.scss */
+.diary-copy p {
+  margin-bottom: 20px;
+}
+
+/* line 28, ../sass/site.scss */
 body {
-  margin: 30px 5.5% 40px;
+  margin: 50px 5% 40px;
   background: white;
+}
+
+/* line 33, ../sass/site.scss */
+img {
+  width: 100%;
+  max-width: 100%;
 }

@@ -17,6 +17,8 @@
 @import "partials/layout";
 @import "partials/header";
 @import "partials/footer";
+@import "partials/diary";
+
 
 
 
@@ -24,6 +26,10 @@
 // =============================================
 
 body {
-  margin: 30px 5.5% 40px;
+  margin: 50px 5% 40px;
   background: $bground;
+}
+
+img {
+	@include resp-img;
 }

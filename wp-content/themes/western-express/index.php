@@ -13,10 +13,10 @@
  * @since 		Timber 0.1
  */
 
+
 	if (!class_exists('Timber')){
 		echo 'Timber not activated';
 	}
-
 	$data = Timber::get_context();
 	$data['menu'] = new TimberMenu();
 	$posts = Timber::get_posts('TimberPost');

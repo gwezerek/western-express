@@ -1,17 +1,45 @@
 
-<article>
+<article class="diary-article">
 
-	<img src="{{TimberImage(post.get_field('lead_img')).src}}" />
-	<div "diary-travel-mod">
-		<img src="{{TimberImage(post.get_field('distance_img')).src}}" />
-		<img src="{{TimberImage(post.get_field('elevation_img')).src}}" />
+	<img class="diary-lead-img" src="{{post.thumbnail.src}}" />
+	{% for item in post.get_field('featured_images') %}
+		<img class="diary-lead-img" src="{{TimberImage(item.image).src}}" />
+		<p>{{item.caption}}</p>
+	{% endfor %}
+
+	<div "diary-map-mod">
+		<img class="diary-map-img" src="{{TimberImage(post.distance_img).src}}" />
+		<img class="diary-map-img" src="{{TimberImage(post.elevation_img).src}}" />
 		<div "diary-travel-toggle">
 			
 		</div>
 	</div>
 
-	<h1>{{post.post_title}}</h1>
-	date/location-location
-	<div>{{post.get_content(0, 1)}}</div>
+	<header class="diary-post-header">
+		<h1 class="diary-post-title">{{post.title}}</h1>
+		<h2 class="diary-dateline">{{post.post_date_range}} &bull; {{TimberTerm(post.from_location)}} -> {{TimberTerm(post.to_location)}}
+		</h2>
+	</header>
+
+	<section class="diary-copy">{{post.content}}</section>
 
 </article>
+
+{% if post.aside %}
+
+	<article class="diary-aside">
+
+		<img class="diary-aside--lead-img" src="{{TimberImage(post.get_field('lead_img')).src}}" />
+		<header class="diary-aside-header">
+			<h1 class="diary-aside-title">{{TimberPost(post.aside).title}}</h1>
+		</header>
+
+		<section class="diary-aside-copy">{{TimberPost(post.aside).content}}</section>
+
+	</article>
+
+{% endif %}
+
+
+
+

@@ -1,10 +1,11 @@
 {% extends "base.twig" %}
 
 {% block content %}
-
+	
+	<main>
 	{% for post in posts %}
-		<h2><a href="{{post.get_link}}">{{post.post_title}}</a></h2>
 		{% include 'content.twig' %}
 	{% endfor %}
+	</main>
 
 {% endblock %}
