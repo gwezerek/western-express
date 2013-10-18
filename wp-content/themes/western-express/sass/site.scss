@@ -16,6 +16,7 @@
 @import "partials/type";
 @import "partials/layout";
 @import "partials/header";
+@import "partials/nav";
 @import "partials/footer";
 @import "partials/diary";
 
@@ -39,6 +40,9 @@ body {
   }
 }
 
+.main-wrap {
+	margin-top: 100px;
+}
 
 
 img {

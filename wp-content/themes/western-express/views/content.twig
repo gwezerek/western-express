@@ -21,12 +21,13 @@
 	</div>
 
 	<header class="diary-post-header max-width">
+		<h2 class="diary-dateline">{{post.post_date_range}}</h2>	
 		<h1 class="diary-post-title">{{post.title}}</h1>
-		<h2 class="diary-dateline">{{post.post_date_range}} &bull; {{TimberTerm(post.from_location)}} 
-			{% if post.to_location %} 
-				-> {{TimberTerm(post.to_location)}}
-			{% endif %}
-		</h2>
+		<div class="diary-post-meta">
+			<span class="diary-post-meta-item">{{TimberTerm(post.from_location)}}</span> 
+			<span class="diary-post-meta-item">{{post.post_mileage}}</span>
+			<span class="diary-post-meta-item">{{TimberTerm(post.to_location)}}</span>
+		</div>
 	</header>
 
 	<section class="diary-copy max-width">{{post.content}}</section>

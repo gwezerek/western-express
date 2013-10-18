@@ -1,0 +1,30 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper max-width">
+
+		<article class="post-type-{{post.post_type}} gear-intro" id="post-{{post.ID}}">
+
+			<img class="maps-distance-map" src="http://placekitten.com/g/200/150" />
+			<img class="maps-elevation-map" src="http://placekitten.com/g/200/150" />
+
+			<nav class="post-nav">
+				<li class="post-category">Week 1</li>
+				<li class="post-category">Week 2</li>
+				<li class="post-category">Week 3</li>
+				<li class="post-category">Week 4</li>
+			</nav>
+			<header class="diary-post-header max-width">
+				<h2 class="diary-dateline">{{post.post_date_range}}</h2>	
+				<h1 class="diary-post-title">{{post.title}}</h1>
+				<div class="diary-post-meta">
+					<span class="diary-post-meta-item">{{TimberTerm(post.from_location)}}</span> 
+					<span class="diary-post-meta-item">{{post.post_mileage}}</span>
+					<span class="diary-post-meta-item">{{TimberTerm(post.to_location)}}</span>
+				</div>
+			</header>
+		</article>
+
+	</div> <!-- /content-wrapper -->
+
+{% endblock %}

@@ -3,24 +3,10 @@
 {% endblock %}
 </head>
     <body class="{{body_class}}" data-source="base.twig">
-        <header class="header max-width" >
-            {% block header %}
-            <div class="wrapper">
 
-                <h1 class="hdr-logo" role="banner">
-                    <a class="ink-logo-text" href="/" title="Timber" rel="home">The Western Express</a>
-                </h1>
+        {% include 'header.twig' %}
 
-                <nav id="access" class="ink-navigation" role="navigation">
-                    {{wp_nav_menu}}
-                </nav><!-- #access -->
-
-            </div>
-            {% endblock %}
-        </header>
-
-
-        <section id="content" role="main" class="content-wrapper">
+        <main id="content" role="main" class="main-wrap">
             {% if title %}<h1>{{title}}</h1>{% endif %}
             <div class="wrapper {{sidebar_class}}">
                 {% block content %}
@@ -32,11 +18,12 @@
                     {{sidebar}}
                 </aside>
             {% endif %}
-        </section>
+        </main>
 
         <footer id="footer">
             {% include 'footer.twig' %}
         </footer>
         {{ function('wp_footer') }}
+    
     </body>
 </html>

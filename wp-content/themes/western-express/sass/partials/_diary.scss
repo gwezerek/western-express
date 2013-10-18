@@ -25,7 +25,7 @@
 	height: 100px;
 	overflow: hidden;
 	margin-bottom: 10px;
-	@media (min-width: $small) {
+	@media (min-width: $medium) {
 		height: auto;
 		margin-bottom: 0px;
 		@include media-grid(2, em(10), '.media-block');
@@ -35,13 +35,16 @@
 .diary-map-img {
 	@include absolute(0 0 n n);
 	margin-bottom: 10px;
-	@media (min-width: $small) {
+	@media (min-width: $medium) {
 		position: static;
 	}
 }
 
 .diary-map-controls {
 	@include media-grid(2, em(10), '.media-block');
+	@media (min-width: $medium) {
+		display: none;
+	}
 }
 
 .diary-map-toggle {
@@ -66,6 +69,7 @@
 	text-align: center;
 	font-weight: normal;
 	font-size: em(16);
+	margin-bottom: 10px;
 }
 
 .diary-copy {

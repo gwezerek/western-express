@@ -1,0 +1,48 @@
+.header-main-nav {
+	position: absolute;
+	right: 20px;
+}
+
+.header-main-nav-item {
+	display: inline-block;
+	float: left;
+}
+
+.header-main-nav-link {
+	display: block;
+	padding: 20px;
+	color: $accent;	
+	text-transform: uppercase;
+	font-size: em(12);	
+}
+
+.header-main-nav-link:hover {
+	color: gray;
+}
+
+
+
+
+// SUB-NAV
+
+.header-sub-nav-list {
+	position: fixed;
+	background-color: floralwhite;
+	left: 0;
+	right: 0;
+	top: 100px;	
+	z-index: 1;
+	height: 50px;
+	display: none;
+}
+
+.header-sub-nav-item {
+	display: inline-block;
+	float: left;	
+	display: block;
+	padding: 8px 10px 0;
+	color: $accent;	
+	text-transform: uppercase;
+	font-size: em(12);	
+}
+

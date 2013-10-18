@@ -362,14 +362,69 @@ body {
 
 /* line 7, ../sass/partials/_header.scss */
 .header {
-  margin-bottom: 40px;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  padding: 20px 20px 0;
+  height: 100px;
+  width: 100%;
+  background: floralwhite;
 }
 
-/* line 11, ../sass/partials/_header.scss */
+/* line 17, ../sass/partials/_header.scss */
 .hdr-logo {
   margin-bottom: 20px;
   font-size: 3.125em;
   line-height: 130%;
+}
+
+/* line 1, ../sass/partials/_nav.scss */
+.header-main-nav {
+  position: absolute;
+  right: 20px;
+}
+
+/* line 6, ../sass/partials/_nav.scss */
+.header-main-nav-item {
+  display: inline-block;
+  float: left;
+}
+
+/* line 11, ../sass/partials/_nav.scss */
+.header-main-nav-link {
+  display: block;
+  padding: 20px;
+  color: black;
+  text-transform: uppercase;
+  font-size: 0.75em;
+}
+
+/* line 19, ../sass/partials/_nav.scss */
+.header-main-nav-link:hover {
+  color: gray;
+}
+
+/* line 28, ../sass/partials/_nav.scss */
+.header-sub-nav-list {
+  position: fixed;
+  background-color: floralwhite;
+  left: 0;
+  right: 0;
+  top: 100px;
+  z-index: 1;
+  height: 50px;
+  display: none;
+}
+
+/* line 39, ../sass/partials/_nav.scss */
+.header-sub-nav-item {
+  display: inline-block;
+  float: left;
+  display: block;
+  padding: 8px 10px 0;
+  color: black;
+  text-transform: uppercase;
+  font-size: 0.75em;
 }
 
 /* line 7, ../sass/partials/_diary.scss */
@@ -399,7 +454,7 @@ body {
   overflow: hidden;
   margin-bottom: 10px;
 }
-@media (min-width: 400px) {
+@media (min-width: 600px) {
   /* line 23, ../sass/partials/_diary.scss */
   .diary-maps {
     height: auto;
@@ -439,7 +494,7 @@ body {
   right: 0;
   margin-bottom: 10px;
 }
-@media (min-width: 400px) {
+@media (min-width: 600px) {
   /* line 35, ../sass/partials/_diary.scss */
   .diary-map-img {
     position: static;
@@ -474,8 +529,14 @@ body {
   clear: left;
   margin-left: 0;
 }
+@media (min-width: 600px) {
+  /* line 43, ../sass/partials/_diary.scss */
+  .diary-map-controls {
+    display: none;
+  }
+}
 
-/* line 47, ../sass/partials/_diary.scss */
+/* line 50, ../sass/partials/_diary.scss */
 .diary-map-toggle {
   display: -moz-inline-stack;
   display: inline-block;
@@ -489,50 +550,56 @@ body {
   background-color: gray;
 }
 
-/* line 55, ../sass/partials/_diary.scss */
+/* line 58, ../sass/partials/_diary.scss */
 .diary-post-header {
   margin-bottom: 20px;
 }
 
-/* line 59, ../sass/partials/_diary.scss */
+/* line 62, ../sass/partials/_diary.scss */
 .diary-post-title {
   margin-bottom: 20px;
   text-align: center;
   font-size: 2.25em;
 }
 
-/* line 65, ../sass/partials/_diary.scss */
+/* line 68, ../sass/partials/_diary.scss */
 .diary-dateline {
   text-align: center;
   font-weight: normal;
   font-size: 1em;
+  margin-bottom: 10px;
 }
 
-/* line 72, ../sass/partials/_diary.scss */
+/* line 76, ../sass/partials/_diary.scss */
 .diary-copy p {
   margin-bottom: 20px;
 }
 
-/* line 28, ../sass/site.scss */
+/* line 29, ../sass/site.scss */
 body {
   background: white;
 }
 
-/* line 32, ../sass/site.scss */
+/* line 33, ../sass/site.scss */
 .max-width {
   margin-left: 5%;
   margin-right: 5%;
   max-width: 900px;
 }
 @media (min-width: 960px) {
-  /* line 32, ../sass/site.scss */
+  /* line 33, ../sass/site.scss */
   .max-width {
     margin-left: auto;
     margin-right: auto;
   }
 }
 
-/* line 44, ../sass/site.scss */
+/* line 43, ../sass/site.scss */
+.main-wrap {
+  margin-top: 100px;
+}
+
+/* line 48, ../sass/site.scss */
 img {
   width: 100%;
   max-width: 100%;
