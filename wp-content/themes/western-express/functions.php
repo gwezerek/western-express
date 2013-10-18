@@ -32,3 +32,19 @@
 	function load_scripts(){
 		wp_enqueue_script('jquery');
 	}
+
+	Timber::add_route('gear/:catName', function($params){
+		//make a custom query based on incoming path and run it...
+		$query = 'post_type=gear&field=slug='.$params['catName'];
+		$query = array('post_type' => 'gear', 'tax_query' => array(
+			array(
+			'taxonomy' => 'gear-category',
+			'field' => 'slug',
+			'terms' => $params['catName']
+			)
+		));
+		// filter by the catName variable in route
+		
+		//load up a template which will use that query
+		Timber::load_template('archive-gear.php', $query);
+	});

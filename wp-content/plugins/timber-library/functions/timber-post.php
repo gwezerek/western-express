@@ -1,11 +1,13 @@
 <?php
- 
+
 class TimberPost extends TimberCore {
 
 	var $ImageClass = 'TimberImage';
 	var $PostClass = 'TimberPost';
 	var $_can_edit;
 	var $_get_terms;
+
+	var $_custom_imported = false;
 
 	public static $representation = 'post';
 
@@ -29,14 +31,14 @@ class TimberPost extends TimberCore {
 			$this->ID = $pid;
 		}
 		$this->init($pid);
-		return $this;
 	}
 
 	function init($pid = false) {
 		if ($pid === false) {
 			$pid = get_the_ID();
 		}
-		$this->import_info($pid);
+		$post_info = $this->get_info($pid);
+		$this->import($post_info);
 	}
 
 	/**
@@ -81,6 +83,7 @@ class TimberPost extends TimberCore {
 				return $post;
 			}
 		}
+		//we can skip if already is WP_Post
 		return $pid;
 	}
 
@@ -114,7 +117,7 @@ class TimberPost extends TimberCore {
 
 	function get_post_id_by_name($post_name) {
 		global $wpdb;
-		$query = "SELECT ID FROM $wpdb->posts WHERE post_name = '$post_name'";
+		$query = $wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE post_name = %s LIMIT 1", $post_name);
 		$result = $wpdb->get_row($query);
 		return $result->ID;
 	}
@@ -174,20 +177,24 @@ class TimberPost extends TimberCore {
    * @param integer $pid a post ID number
    * @nodoc
    */
-	function import_custom($pid) {
+  	function import_custom($pid = false){
+  		if (!$pid){
+  			$pid = $this->ID;
+  		}
+  		$customs = $this->get_post_custom($pid);
+  		$this->import($customs);
+  	}
+
+	function get_post_custom($pid) {
 		$customs = get_post_custom($pid);
-		if (!is_array($customs)){
+		if (!is_array($customs) || empty($customs)){
 			return;
 		}
 		foreach ($customs as $key => $value) {
 			$v = $value[0];
-			$this->$key = $v;
-			if (is_serialized($v)) {
-				if (gettype(unserialize($v)) == 'array') {
-					$this->$key = unserialize($v);
-				}
-			}
+			$customs[$key] = maybe_unserialize($v);
 		}
+		return $customs;
 	}
 
 	/**
@@ -220,11 +227,6 @@ class TimberPost extends TimberCore {
 		return null;
 	}
 
-	function import_info($pid) {
-		$post_info = $this->get_info($pid);
-		$this->import($post_info);
-	}
-
 	function get_parent() {
 		if (!$this->post_parent) {
 			return false;
@@ -245,21 +247,14 @@ class TimberPost extends TimberCore {
 	}
 
 	function get_info($pid) {
-		global $wp_rewrite;
 		$post = $this->prepare_post_info($pid);
-		if (!isset($post->post_title)) {
+		if (!isset($post->post_status)) {
 			return null;
 		}
 		$post->slug = $post->post_name;
-		$post->display_date = date(get_option('date_format'), strtotime($post->post_date));
-		$this->import_custom($post->ID);
 		$post->status = $post->post_status;
-		if (!isset($wp_rewrite)) {
-			return $post;
-		} else {
-			$post->permalink = get_permalink($post->ID);
-			$post->path = $this->url_to_path($post->permalink);
-		}
+		$customs = $this->get_post_custom($post->ID);
+		$post = (object) array_merge((array) $post, (array) $customs);
 		return $post;
 	}
 
@@ -461,8 +456,17 @@ class TimberPost extends TimberCore {
 		return $this->get_content();
 	}
 
+	function display_date(){
+		return date(get_option('date_format'), strtotime($this->post_date));
+	}
+
 	function link() {
 		return $this->get_permalink();
+	}
+
+	function path(){
+		$path = TimberHelper::get_rel_url($this->get_permalink());
+		return TimberHelper::preslashit($path);
 	}
 
 	function permalink() {

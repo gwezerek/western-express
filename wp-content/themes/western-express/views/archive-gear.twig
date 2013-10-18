@@ -1,0 +1,52 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper max-width">
+		<article class="post-type-{{post.post_type}} gear-intro" id="post-{{post.ID}}">
+			<section class="article-intro">
+				<h2 class="article-header">{{post.post_title}}</h2>				
+				<div class="article-body">
+					{{post.get_content}}
+				</div>
+			</section>
+			<section class="gear">
+				<nav class="gear-nav">
+				{% for item in gear %}
+					<li class="gear-category"><a href="/gear/{{item.slug}}">{{item.name}}</a></li>
+				{% endfor %}
+				</nav>
+				<section class="gear-modules">
+					{% for post in posts %}
+					<article class="gear-module">
+						<img class="gear-img" src="{{post.thumbnail.src}}" />
+						<h3 class="gear-title">{{post.title}}</h3>
+						<aside class="gear-meta">
+							<span class="gear-rating">{{post.rating}}</span>
+							<a href="{{post.buy_link}}" class="gear-buy">Buy</a>
+						</aside>
+						<p class="gear-review">{{post.content}}</p>
+					</article>	
+					{% endfor %}
+				</section>
+			</section>
+
+			<section class="gear-inventory">
+				<h3 class="gear-inventory-title">Gear Inventory</h3>
+				<ul class="gear-inventory-category-list">
+					{% for item in gear %}
+					<li class="gear-inventory-cateogry">
+						<h4 class="gear-inventory-category-title">{{item.name}}</h4>
+						<ul>
+							{% for gearItem in item.get_posts %}
+								<li class="gear-invetory-item"><a href="/gear/{{item.slug}}/{{gearItem.slug}}">{{gearItem.title}}</a></li>
+							{% endfor %}
+						</ul>
+					</li>
+					{% endfor %}				
+				</ul>			
+			</section>
+		</article>
+
+	</div> <!-- /content-wrapper -->
+
+{% endblock %}

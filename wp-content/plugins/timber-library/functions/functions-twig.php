@@ -69,7 +69,6 @@ class TimberTwig {
         	}
         	return new TimberImage($pid);
         }));
-
         $twig->addFunction(new Twig_SimpleFunction('TimberTerm', function($pid){
         	if (is_array($pid)){
         		foreach($pid as &$p){
@@ -151,7 +150,7 @@ function hexrgb($hexstr) {
 function wp_resize_letterbox($src, $w, $h, $color = '#000000') {
 	//$old_file = TimberHelper::get_full_path($src);
 	$urlinfo = parse_url($src);
-	$old_file = $_SERVER['DOCUMENT_ROOT'].$urlinfo['path'];
+	$old_file = ABSPATH.$urlinfo['path'];
 	$new_file = TimberHelper::get_letterbox_file_path($urlinfo['path'], $w, $h);
 	$new_file_rel = TimberHelper::get_letterbox_file_rel($urlinfo['path'], $w, $h);
 	$new_file_boxed = str_replace('-lb-', '-lbox-', $new_file);
@@ -202,9 +201,7 @@ function wp_resize_letterbox($src, $w, $h, $color = '#000000') {
 		imagejpeg($bg, $new_file);
 		return TimberHelper::get_rel_path($new_file);
 	} else {
-		if (WP_DEBUG){
-			TimberHelper::error_log($image);
-		}
+		TimberHelper::error_log($image);
 	}
 	return null;
 }

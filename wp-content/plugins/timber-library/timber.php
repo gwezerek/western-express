@@ -1,10 +1,11 @@
 <?php
 /*
 Plugin Name: Timber
+Plugin URI: http://timber.upstatement.com
 Description: The WordPress Timber Library allows you to write themes using the power Twig templates
 Author: Jared Novack + Upstatement
-Version: 0.14.0
-Author URI: http://timber.upstatement.com/
+Version: 0.14.1
+Author URI: http://upstatement.com/
 */
 
 global $wp_version;
@@ -22,12 +23,12 @@ require_once(__DIR__ . '/functions/timber-term.php');
 require_once(__DIR__ . '/functions/timber-term-getter.php');
 require_once(__DIR__ . '/functions/timber-image.php');
 require_once(__DIR__ . '/functions/timber-menu.php');
+require_once(__DIR__ . '/functions/timber-theme.php');
 
 require_once(__DIR__ . '/functions/timber-loader.php');
 require_once(__DIR__ . '/functions/timber-function-wrapper.php');
 
 require_once(__DIR__ . '/admin/timber-admin.php');
-
 
 /** Usage:
  *
@@ -48,13 +49,14 @@ class Timber {
     public static $locations;
     public static $dirname = 'views';
     public static $cache = false;
+    public static $auto_meta = true;
 
     protected $router;
 
     public function __construct(){
         $this->test_compatibility();
         $this->init_constants();
-        add_action('init', array(&$this, 'init_routes'));
+        add_action('init', array($this, 'init_routes'));
     }
 
     protected function test_compatibility(){
@@ -67,7 +69,7 @@ class Timber {
     }
 
     protected function init_constants() {
-        $timber_loc = str_replace(realpath($_SERVER['DOCUMENT_ROOT']), '', realpath(__DIR__));
+        $timber_loc = str_replace(realpath(ABSPATH), '', realpath(__DIR__));
         $plugin_url_path = str_replace($_SERVER['HTTP_HOST'], '', plugins_url());
         $plugin_url_path = str_replace('https://', '', $plugin_url_path);
         $plugin_url_path = str_replace('http://', '', $plugin_url_path);
@@ -122,7 +124,7 @@ class Timber {
             //return self::get_posts_from_wp_query(array(), $PostClass);
             return null;
         } else {
-            error_log('I have failed you! in timber.php::94');
+            TimberHelper::error_log('I have failed you! in timber.php::94');
             TimberHelper::error_log($query);
         }
         return $query;
@@ -161,18 +163,18 @@ class Timber {
 
     public static function get_posts_from_slug($slug, $PostClass) {
         global $wpdb;
-        $query = "SELECT ID FROM $wpdb->posts WHERE post_name = '$slug'";
+        $query = $wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE post_name = %s", $slug);
         if (strstr($slug, '#')) {
             //we have a post_type directive here
             $q = explode('#', $slug);
             $q = array_filter($q);
             $q = array_values($q);
             if (count($q) == 1){
-                $query = "SELECT ID FROM $wpdb->posts WHERE post_name = '$q[0]'";
+                $query = $wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE post_name = %s", $q[0]);
             } else if (count($q) == 2){
-                $query = "SELECT ID FROM $wpdb->posts WHERE post_name = '$q[1]' AND post_type = '$q[0]'";
+                $query = $wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE post_name = %s AND post_type = %s LIMIT 1", $q[1], $q[0]);
             } else {
-                error_log('something we dont understand about '.$slug);
+                TimberHelper::error_log('something we dont understand about '.$slug);
             }
         }
         $results = $wpdb->get_col($query);
@@ -180,6 +182,7 @@ class Timber {
     }
 
     public static function get_posts_from_wp_query($query = array(), $PostClass = 'TimberPost') {
+        $start = TimberHelper::start_timer();
         $results = get_posts($query);
         return self::handle_post_results($results, $PostClass);
     }
@@ -192,7 +195,10 @@ class Timber {
         return self::handle_post_results($results, $PostClass);
     }
 
+
     public static function handle_post_results($results, $PostClass = 'TimberPost') {
+
+        $start = TimberHelper::start_timer();
         $posts = array();
         foreach ($results as $rid) {
             $PostClassUse = $PostClass;
@@ -203,14 +209,14 @@ class Timber {
                     $PostClassUse = $PostClass[$post_type];
                 } else {
                     if (is_array($PostClass)) {
-                        error_log($post_type.' of '.$rid.' not found in ' . print_r($PostClass, true));
+                        TimberHelper::error_log($post_type.' of '.$rid.' not found in ' . print_r($PostClass, true));
                     } else {
-                        error_log($post_type.' not found in '.$PostClass);
+                        TimberHelper::error_log($post_type.' not found in '.$PostClass);
                     }
                 }
             }
             $post = new $PostClassUse($rid);
-            if (isset($post->post_title)) {
+            if (isset($post->ID)) {
                 $posts[] = $post;
             }
         }
@@ -288,7 +294,7 @@ class Timber {
         if (function_exists('wp_nav_menu')) {
             $data['wp_nav_menu'] = wp_nav_menu(array('container_class' => 'menu-header', 'echo' => false, 'menu_class' => 'nav-menu'));
         }
-        $data['theme_dir'] = str_replace($_SERVER['DOCUMENT_ROOT'], '', get_stylesheet_directory());
+        $data['theme_dir'] = str_replace(ABSPATH, '', get_stylesheet_directory());
         $data['language_attributes'] = TimberHelper::function_wrapper('language_attributes');
         $data['stylesheet_uri'] = get_stylesheet_uri();
         $data['template_uri'] = get_template_directory_uri();
@@ -302,6 +308,8 @@ class Timber {
         $file = $loader->choose_template($filenames);
         $output = '';
         if (strlen($file)) {
+            $file = apply_filters('timber_render_file', $file);
+            $data = apply_filters('timber_render_data', $data);
             $output = $loader->render($file, $data);
         }
         if ($echo) {
@@ -338,7 +346,7 @@ class Timber {
             }
         }
         if (!$found) {
-            error_log('error loading your sidebar, check to make sure the file exists');
+            TimberHelper::error_log('error loading your sidebar, check to make sure the file exists');
         }
         $ret = ob_get_contents();
         ob_end_clean();
@@ -377,6 +385,14 @@ class Timber {
             $timber->router->setBasePath('/');
         }
         $timber->router->map($route, $callback);
+    }
+
+    public static function cancel_query(){
+        add_action('posts_request', function(){
+            if (is_main_query()){
+                wp_reset_query();
+            }
+        });
     }
 
 
@@ -454,7 +470,7 @@ class Timber {
 
     public static function get_calling_script_path($offset = 0) {
         $dir = self::get_calling_script_dir($offset);
-        return str_replace($_SERVER['DOCUMENT_ROOT'], '', realpath($dir));
+        return str_replace(ABSPATH, '', realpath($dir));
     }
 
     public static function get_calling_script_dir($offset = 0) {

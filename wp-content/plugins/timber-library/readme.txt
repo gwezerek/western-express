@@ -2,8 +2,9 @@
 Contributors: jarednova
 Tags: template engine, templates, twig
 Requires at least: 3.5
-Stable tag: 0.13.5
+Stable tag: 0.14.1
 Tested up to: 3.6.1
+PHP version: 5.3.0 or greater
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +37,13 @@ Timber is great for any WordPress developer who cares about writing good, mainta
 
 
 == Changelog ==
+
+= 0.14.1 =
+* Added hooks to play nicely with Timber Debug Bar
+* Fixed-up Timber Term aliases, link, path, etc.
+* Add DB queries now get properly prepared
+* Supports custom author permalinks
+* Simplified TimberPost processing; shaved some processing time off
 
 = 0.14.0 =
 * More flexiblity for custom routes (thanks @mgmartel)

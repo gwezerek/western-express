@@ -13,11 +13,12 @@
  * @subpackage 	Timber
  * @since 		Timber 0.2
  */
-	
 
 		$templates = array('archive.twig', 'index.twig');
 
 		$data = Timber::get_context();
+
+		echo "asdfad";
 
 		$data['title'] = 'Archive';
 		if (is_day()){

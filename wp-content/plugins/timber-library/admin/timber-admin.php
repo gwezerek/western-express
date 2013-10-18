@@ -16,7 +16,7 @@ class TimberAdmin {
 	}
 
 	function settings_link( $links, $file ) {
-		if (strstr($file, 'timber')){
+		if (strstr($file, 'timber/timber.php')){
 		    return array_merge(
 		        array(
 		            'settings' => '<a href="' . get_bloginfo( 'wpurl' ) . '/wp-admin/themes.php?page=timber-getting-started">Starter Guide</a>'
@@ -45,7 +45,7 @@ class TimberAdmin {
 		$data['timber_base'] = TIMBER_URL_PATH;
 		$data['home_file']['path'] = trailingslashit(get_stylesheet_directory()) . $data['home_file']['name'];
 		$data['home_file']['contents'] = htmlentities(file_get_contents(realpath($data['home_file']['path'])));
-		$data['home_file']['location'] = str_replace($_SERVER['DOCUMENT_ROOT'], '', trailingslashit(get_stylesheet_directory()));
+		$data['home_file']['location'] = str_replace(ABSPATH, '', trailingslashit(get_stylesheet_directory()));
 		Timber::render('timber-admin.twig', $data);
 	}
 
