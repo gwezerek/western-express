@@ -368,11 +368,10 @@ body {
   padding: 20px 20px 0;
   height: 100px;
   width: 100%;
-  background: floralwhite;
-  display: none;
+  background: white;
 }
 
-/* line 18, ../sass/partials/_header.scss */
+/* line 17, ../sass/partials/_header.scss */
 .hdr-logo {
   margin-bottom: 20px;
   font-size: 3.125em;
@@ -414,6 +413,7 @@ body {
   top: 100px;
   z-index: 1;
   height: 50px;
+  display: none;
 }
 
 /* line 39, ../sass/partials/_nav.scss */
@@ -595,11 +595,6 @@ body {
 }
 
 /* line 43, ../sass/site.scss */
-.main-wrap {
-  margin-top: 150px;
-}
-
-/* line 48, ../sass/site.scss */
 img {
   width: 100%;
   max-width: 100%;

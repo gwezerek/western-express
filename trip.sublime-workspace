@@ -4,12 +4,12 @@
 		"selected_items":
 		[
 			[
-				"line",
-				"line-height"
+				"text",
+				"text-decoration"
 			],
 			[
-				"text",
-				"text-transform"
+				"line",
+				"line-height"
 			],
 			[
 				"background",
@@ -203,16 +203,24 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 67.0,
+		"height": 207.0,
 		"selected_items":
 		[
 			[
-				"install",
-				"Package Control: Install Package"
-			],
-			[
 				"reind",
 				"Indentation: Reindent Lines"
+			],
+			[
+				"indent",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"lorem",
+				"Snippet: ipsum - Lorem - Long paragraph"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
 			],
 			[
 				"rein",
@@ -249,10 +257,6 @@
 			[
 				"reinden",
 				"Indentation: Reindent Lines"
-			],
-			[
-				"indent",
-				"Indentation: Convert to Tabs"
 			],
 			[
 				"prettif",
@@ -399,7 +403,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 521.0
+		"width": 575.0
 	},
 	"console":
 	{
@@ -421,6 +425,38 @@
 	},
 	"file_history":
 	[
+		"/Users/upstatement/Sites/western-express/wp-content/themes/western-express/views/footer.twig",
+		"/Users/upstatement/Sites/western-express/wp-content/themes/western-express/views/content.twig",
+		"/Users/upstatement/Sites/western-express/wp-content/themes/western-express/views/header.twig",
+		"/Users/upstatement/Sites/western-express/wp-content/themes/western-express/views/html-header.twig",
+		"/Users/upstatement/Sites/western-express/wp-content/themes/western-express/views/page-maps.twig",
+		"/Users/upstatement/Sites/western-express/wp-content/themes/western-express/sass/partials/_nav.scss",
+		"/Users/upstatement/Sites/western-express/wp-content/themes/western-express/sass/site.scss",
+		"/Users/upstatement/Sites/western-express/wp-content/themes/western-express/sass/partials/_header.scss",
+		"/Users/upstatement/Sites/western-express/wp-content/themes/western-express/views/html-footer.twig",
+		"/Users/upstatement/Sites/dev-links/README.md",
+		"/Users/upstatement/Downloads/Trunk-Package/css/trunk.css",
+		"/Users/upstatement/Sites/western-express/wp-content/themes/western-express/sass/components/_mixins.scss",
+		"/Users/upstatement/Sites/western-express/wp-content/themes/western-express/sass/components/_variables.scss",
+		"/Users/upstatement/Sites/western-express/wp-content/themes/western-express/views/page-prep.twig",
+		"/Users/upstatement/Sites/western-express/wp-content/themes/western-express/views/page.twig",
+		"/Users/upstatement/Sites/western-express/wp-content/themes/western-express/index.php",
+		"/Users/upstatement/Sites/timber/functions/timber-image.php",
+		"/Users/upstatement/Sites/timber/functions/timber-post.php",
+		"/Users/upstatement/Sites/timber/functions/functions-twig.php",
+		"/Users/upstatement/Sites/western-express/wp-content/plugins/timber-library/functions/functions-twig.php",
+		"/Users/upstatement/Sites/western-express/wp-content/themes/western-express/views/home.twig",
+		"/Users/upstatement/Sites/western-express/wp-content/themes/western-express/sass/partials/_category.scss",
+		"/Users/upstatement/Sites/western-express/wp-content/themes/western-express/sass/site.css",
+		"/Users/upstatement/Sites/western-express/wp-content/themes/western-express/sass/partials/_type.scss",
+		"/Users/upstatement/Sites/western-express/wp-content/themes/western-express/sass/partials/_footer.scss",
+		"/Users/upstatement/Sites/western-express/wp-content/themes/western-express/sass/partials/_layout.scss",
+		"/Users/upstatement/Sites/western-express/wp-content/themes/western-express/css/site.css",
+		"/Users/upstatement/Sites/western-express/wp-content/themes/western-express/sass/partials/_reset.scss",
+		"/Users/upstatement/Sites/trip/wp-content/themes/trip-theme/views/single.twig",
+		"/Users/upstatement/Sites/trip/wp-content/themes/trip-theme/views/content.twig",
+		"/Users/upstatement/Sites/trip/wp-content/themes/trip-theme/views/home.twig",
+		"/Users/upstatement/Sites/trip/wp-content/themes/trip-theme/css/test.css",
 		"/Users/upstatement/Sites/trip/npm-debug.log",
 		"/Users/upstatement/Desktop/tmpl.index.html",
 		"/Users/upstatement/Sites/npr/src/sass/partials/_package-mod.scss",
@@ -516,49 +552,19 @@
 		"/Users/upstatement/Sites/npr-about-redux/img/laptop.jpg",
 		"/Users/upstatement/Sites/npr-about-redux/img/iphone.png",
 		"/Users/upstatement/Sites/npr-about-redux/img/iphone.jpg",
-		"/Users/upstatement/Sites/npr-about-redux/img/glass-guy.jpg",
-		"/Users/upstatement/Sites/npr-about-redux/img/break-widget.png",
-		"/Users/upstatement/Sites/npr-about-redux/img/award.png",
-		"/Users/upstatement/Sites/npr-about-redux/img/npr-hdr.jpg",
-		"/Users/upstatement/Sites/npr-about-redux/img/npr-logo.png",
-		"/Users/upstatement/Sites/npr-about-redux/img/news-graphic-fpo.png",
-		"/Users/upstatement/Sites/npr-about-redux/img/quote.jpg",
-		"/Users/upstatement/Sites/npr-about-redux/img/section-tz-2.jpg",
-		"/Users/upstatement/Sites/npr-about-redux/img/section-tz-1.jpg",
-		"/Users/upstatement/Sites/npr-about-redux/img/section-tz-3.jpg",
-		"/Users/upstatement/Sites/npr-about-redux/img/shot1.jpg",
-		"/Users/upstatement/Sites/npr-about-redux/img/shot2.jpg",
-		"/Users/upstatement/Sites/npr-about-redux/img/shot3.jpg",
-		"/Users/upstatement/Sites/npr-about-redux/img/shot4.jpg",
-		"/Users/upstatement/Sites/npr-about-redux/js/app.js",
-		"/Users/upstatement/Sites/npr-about-redux/css/screen.css",
-		"/Users/upstatement/Sites/inkwell-biztoday/wp-content/plugins/inkwell/src/partials/feed_manager/_feed-unpinned.scss",
-		"/Users/upstatement/Sites/inkwell-biztoday/wp-content/plugins/inkwell/src/partials/feed_manager/_feed-footer.scss",
-		"/Users/upstatement/Sites/inkwell-biztoday/wp-content/plugins/inkwell/src/partials/feed_manager/_feed-base.scss",
-		"/Users/upstatement/Sites/inkwell-biztoday/wp-content/plugins/inkwell/src/partials/feed_manager/_feed-header.scss",
-		"/Users/upstatement/Sites/inkwell-biztoday/wp-content/plugins/inkwell/js/inkwell-feed.js",
-		"/Users/upstatement/Sites/inkwell-biztoday/wp-content/plugins/inkwell/src/partials/feed_manager/_feed-listview.scss",
-		"/Users/upstatement/Sites/inkwell-biztoday/wp-content/plugins/inkwell/src/partials/feed_manager/_feed-layout.scss",
-		"/Users/upstatement/Sites/inkwell-biztoday/wp-content/plugins/inkwell/src/partials/feed_manager/_feed-stub-thin.scss",
-		"/Users/upstatement/Sites/inkwell-biztoday/wp-content/plugins/inkwell/views/feed-stream.html",
-		"/Users/upstatement/Sites/inkwell-biztoday/wp-content/plugins/inkwell/src/partials/feed_manager/_feed-stub.scss",
-		"/Users/upstatement/Sites/inkwell-biztoday/wp-content/plugins/inkwell/src/partials/feed_manager/_feed-main.scss",
-		"/Users/upstatement/Sites/inkwell-biztoday/wp-content/plugins/inkwell/src/partials/feed_manager/_feed-search.scss",
-		"/Users/upstatement/Sites/inkwell-biztoday/wp-content/plugins/inkwell/src/inkwell-admin.scss",
-		"/Users/upstatement/Sites/inkwell-biztoday/wp-content/plugins/inkwell/inkwell-admin.js",
-		"/Users/upstatement/Sites/inkwell-biztoday/wp-content/plugins/inkwell/src/partials/feed_manager/_feed-variables-mixins.scss",
-		"/Users/upstatement/Sites/inkwell-biztoday/wp-content/plugins/inkwell/.sass-cache/49c76e69604bd10b31568d819e0333087886bc61/_feed-main.scssc",
-		"/Users/upstatement/Sites/inkwell-biztoday/wp-content/plugins/inkwell/src/project/_variables.scss"
+		"/Users/upstatement/Sites/npr-about-redux/img/glass-guy.jpg"
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 40.0
 	},
 	"find_in_files":
 	{
 		"height": 93.0,
 		"where_history":
 		[
+			"folio/sass/partials/*.scss",
+			"/sass/partials/*.scss",
 			"",
 			"sass/partials/*.scss",
 			"*.scss",
@@ -616,6 +622,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"contact-tools",
+			"cat",
+			"contact-tools",
+			"%}\n",
+			"articles",
+			"small",
+			"media",
+			"\n}",
+			"shortcode",
+			"post-",
 			"&#xe001;",
 			" icon",
 			"arrow-down",
@@ -733,17 +749,7 @@
 			"flyout-controls",
 			"coda",
 			"codda",
-			"video",
-			"author",
-			"tweets",
-			"tweet-handle",
-			"\">\n",
-			"txt-bd",
-			" mod ",
-			"mod ",
-			"\"mod ",
-			"mod ",
-			"sendak-mod"
+			"video"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -815,7 +821,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 25.0
+		"height": 30.0
 	},
 	"input":
 	{
@@ -847,7 +853,7 @@
 	"project": "trip.sublime-project",
 	"replace":
 	{
-		"height": 64.0
+		"height": 74.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -855,6 +861,18 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"functions-",
+				"timber/functions/functions-twig.php"
+			],
+			[
+				"timber-post",
+				"timber/functions/timber-post.php"
+			],
+			[
+				"timber-image",
+				"timber/functions/timber-image.php"
+			],
 			[
 				"caption",
 				"src/sass/partials/_caption.scss"
@@ -1354,18 +1372,6 @@
 			[
 				"timber",
 				"wp-content/plugins/timber/functions/timber-core.php"
-			],
-			[
-				"typography",
-				"wp-content/plugins/inkwell/src/partials/_typography.scss"
-			],
-			[
-				"feedmana",
-				"wp-content/plugins/inkwell/src/partials/feed_manager/_feedmanager.scss"
-			],
-			[
-				"inkwell-fee",
-				"wp-content/plugins/inkwell/js/inkwell-feed.js"
 			]
 		],
 		"width": 0.0
@@ -1393,7 +1399,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 219.0,
+	"side_bar_width": 226.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
