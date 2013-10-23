@@ -24,9 +24,9 @@
 		<h2 class="diary-dateline">{{post.post_date_range}}</h2>	
 		<h1 class="diary-post-title">{{post.title}}</h1>
 		<div class="diary-post-meta">
-			<span class="diary-post-meta-item">{{TimberTerm(post.from_location)}}</span> 
-			<span class="diary-post-meta-item">{{post.post_mileage}}</span>
-			<span class="diary-post-meta-item">{{TimberTerm(post.to_location)}}</span>
+			<span class="diary-post-meta-item">{% if post.from_location %}{{TimberTerm(post.from_location)}}{% endif %}</span> 
+			<span class="diary-post-meta-item">{% if post.post_mileage %}{{post.post_mileage}}{% endif %}</span>
+			<span class="diary-post-meta-item">{% if post.to_location %}{{TimberTerm(post.to_location)}}{% endif %}</span>
 		</div>
 	</header>
 

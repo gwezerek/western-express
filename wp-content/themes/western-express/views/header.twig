@@ -5,13 +5,12 @@
         <ul class="header-main-nav">
             <li class="header-main-nav-item"><a href="/" class="header-main-nav-link">Diary</a></li>
             <li class="header-main-nav-item"><a href="http://localhost/maps/" class="header-main-nav-link">Maps</a></li>
-            <li class="header-main-nav-item"><a href="http://localhost/prep/" class="header-main-nav-link">Gear</a></li>
+            <li class="header-main-nav-item"><a href="http://localhost/gear/" class="header-main-nav-link">Gear</a></li>
         </ul>
         <ol class="header-sub-nav-list">
-            <li class="header-sub-nav-item"><a href="tk.html" class="header-sub-nav-item">Week 1</a></li>
-            <li class="header-sub-nav-item"><a href="tk.html" class="header-sub-nav-item">Week 2</a></li>
-            <li class="header-sub-nav-item"><a href="tk.html" class="header-sub-nav-item">Week 3</a></li>
-            <li class="header-sub-nav-item"><a href="tk.html" class="header-sub-nav-item">Week 4</a></li>
+            {% for item in weeks %}
+                <li class="header-sub-nav-item"><a href="tk.html" class="header-sub-nav-item">{{item.name}}</a></li>
+            {% endfor %}
         </ol>   
     </nav>
     <h1 class="hdr-logo" role="banner">

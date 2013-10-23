@@ -21,7 +21,10 @@
 	$data['menu'] = new TimberMenu();
 	$posts = Timber::get_posts('TimberPost');
 	$data['posts'] = $posts;
-	$data['foo'] = 'bar';
+
+	$post_cats = Timber::get_terms('week');
+	$data['weeks'] = $post_cats;
+
 	$templates = array('index.twig');
 	if (is_home()){
 		array_unshift($templates, 'home.twig');

@@ -2,28 +2,45 @@
 {% block head %}
 {% endblock %}
 </head>
-    <body class="{{body_class}}" data-source="base.twig">
+<body class="{{body_class}}" data-source="base.twig">
 
-        {% include 'header.twig' %}
+	{% include 'header.twig' %}
 
-        <main id="content" role="main" class="main-wrap">
-            {% if title %}<h1>{{title}}</h1>{% endif %}
-            <div class="wrapper {{sidebar_class}}">
-                {% block content %}
-                    Sorry, no content
-                {% endblock %}
-            </div>
-            {% if sidebar %}
-                <aside class="layout-sidebar">
-                    {{sidebar}}
-                </aside>
-            {% endif %}
-        </main>
+	<main id="content" role="main" class="main-wrap">
+		{% if title %}<h1>{{title}}</h1>{% endif %}
+		<div class="wrapper {{sidebar_class}}">
+			{% block content %}
+			Sorry, no content
+			{% endblock %}
+		</div>
+		{% if sidebar %}
+		<aside class="layout-sidebar">
+			{{sidebar}}
+		</aside>
+		{% endif %}
+	</main>
 
-        <footer id="footer">
-            {% include 'footer.twig' %}
-        </footer>
-        {{ function('wp_footer') }}
-    
-    </body>
+	<footer id="footer">
+		{% include 'footer.twig' %}
+	</footer>
+	{{ function('wp_footer') }}
+
+
+	<script type="text/javascript" src="/js/site.js"></script>
+	<script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDD4ReElYCZ7GbxDbVFW0wfp6sM9Epjy2g&sensor=true">
+    </script>
+	<script type="text/javascript">
+		function initialize() {
+			var mapOptions = {
+				center: new google.maps.LatLng(37.796, -122.413),
+				zoom: 15,
+				mapTypeId: google.maps.MapTypeId.TERRAIN
+			};
+			var map = new google.maps.Map(document.getElementById("map-canvas"),
+				mapOptions);
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+</body>
 </html>

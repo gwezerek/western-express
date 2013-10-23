@@ -3,26 +3,32 @@
 {% block content %}
 	<div class="content-wrapper max-width">
 
-		<article class="post-type-{{post.post_type}} gear-intro" id="post-{{post.ID}}">
+		<div class="maps-distance" id="map-canvas"/></div>
+		<div class="maps-elevation"></div>
 
-			<img class="maps-distance-map" src="http://placekitten.com/g/200/150" />
-			<img class="maps-elevation-map" src="http://placekitten.com/g/200/30" />
+		<article class="post-type-{{post.post_type}} maps-tease-mod" id="post-{{post.ID}}">
 
 			<nav class="post-nav">
-				<li class="post-category">Week 1</li>
-				<li class="post-category">Week 2</li>
-				<li class="post-category">Week 3</li>
-				<li class="post-category">Week 4</li>
+				<ol>
+					{% for item in weeks %}
+					<li class="post-category"><a href="/">{{item.name}}</a></li>
+					{% endfor %}
+				</ol>
 			</nav>
-			<header class="diary-post-header max-width">
-				<h2 class="diary-dateline">{{post.post_date_range}}</h2>	
-				<h1 class="diary-post-title">{{post.title}}</h1>
-				<div class="diary-post-meta">
-					<span class="diary-post-meta-item">{{TimberTerm(post.from_location)}}</span> 
-					<span class="diary-post-meta-item">{{post.post_mileage}}</span>
-					<span class="diary-post-meta-item">{{TimberTerm(post.to_location)}}</span>
-				</div>
-			</header>
+			{% for post in posts %}
+				<header class="maps-post-header max-width">
+					<h2 class="maps-dateline">{{post.post_date_range}}</h2>	
+					<h1 class="maps-post-title">{{post.title}}</h1>
+					<div class="maps-post-meta">
+						<span class="maps-post-meta-item">San Francisco, CA{% if post.from_location %}{{TimberTerm(post.from_location)}}{% endif %}</span> 
+						<span class="maps-post-meta-item">65 miles{% if post.post_mileage %}{{post.post_mileage}}{% endif %}</span>
+						<span class="maps-post-meta-item">Davis, CA{% if post.to_location %}{{TimberTerm(post.to_location)}}{% endif %}</span>
+					</div>
+					<div class="maps-post-story">
+						{{post.content}}
+					</div>
+				</header>
+			{% endfor %}
 		</article>
 
 	</div> <!-- /content-wrapper -->
